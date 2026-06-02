@@ -54,4 +54,5 @@ Hotel.init({
     timestamps : true
 }) ;   
 
-export default Hotel ;
+export default Hotel ; // db ka ts represenation exproted ispe functions lgaake CRUD do
+

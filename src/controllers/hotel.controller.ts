@@ -1,0 +1,24 @@
+import { NextFunction, Request , Response } from "express" ;
+import { createHotelService, getHotelByIdService } from "../services/hotel.service.js";
+
+export async function createHotelHandler( req:Request , res:Response , next:NextFunction ){
+    // 1. call the service layer function 
+    const hotelResponse = await createHotelService( req.body ) ;
+    // 2.send the response 
+    res.status( 200 ).json({
+        message : "Hotel created successfully" , 
+        data : hotelResponse , 
+        success : true 
+    })
+}
+
+export async function getHotelsHandler( req:Request , res:Response , next:NextFunction ){
+    // 1. call the service layer function 
+    const hotelsResponse = await getHotelByIdService( Number(req.params.id) ) ;
+    // 2.send the response 
+    res.status( 200 ).json({
+        message : "Hotels fetched successfully" , 
+        data : hotelsResponse , 
+        success : true 
+    })
+}
