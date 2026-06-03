@@ -9,7 +9,7 @@ class Hotel extends Model<InferAttributes<Hotel> , InferCreationAttributes<Hotel
     declare createdAt : CreationOptional<Date>;
     declare updatedAt : CreationOptional<Date>
     declare rating : number;
-    declare rating_count : number ;
+    declare ratingcount : number ;
 }
 
 Hotel.init({
@@ -42,16 +42,16 @@ Hotel.init({
         type : "DECIMAL(3,2)",
         allowNull : false
     },
-    rating_count : {
+    ratingcount : {
         type : "INT",
         allowNull : false
     }
 } , {
-    sequelize : sequelize ,
-    tableName : "hotels" , 
+    sequelize : sequelize , // database connection vaalaa object vahi valaa -- dekhre ki vahi db hinaa connecting to it 
+    tableName : "hotels" , // specific table in that db 
    // underscored : true , // as mere db mein v createdAt , updatedAt hi hai 
    // created_At updated_at nhi hai toh underscored true krne se bhi kuch farak nhi padega
-    timestamps : true
+    timestamps : true // wanna create timestamps ?? 
 }) ;   
 
 export default Hotel ; // db ka ts represenation exproted ispe functions lgaake CRUD do

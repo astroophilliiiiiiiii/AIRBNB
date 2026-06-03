@@ -13,7 +13,7 @@ type DBConfig = {
     DB_HOST : string , 
 }
 
-export const serverConfig : ServerConfig = {
+export const serverConfig : ServerConfig = { // serverConfig exported 
     PORT : Number( process.env.PORT ) || 3000 , 
     MONGO_URI : process.env.MONGO_URI || ""
 }

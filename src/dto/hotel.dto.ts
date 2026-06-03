@@ -1,7 +1,8 @@
+// ye extraa faaltu ki fields htaa degaa agr present hogi input mein toh !! 
 export type createHotelDTO = {
     name : string , 
     address : string ,
     location : string ,
     rating? : number ,
-    rating_count? : number 
+    ratingcount? : number 
 }

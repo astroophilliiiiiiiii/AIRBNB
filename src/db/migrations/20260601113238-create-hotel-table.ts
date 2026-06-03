@@ -1,5 +1,7 @@
 import { QueryInterface } from 'sequelize';
 
+// ye jo cli commands hoti db:migrate vgerraa usne chaltaaa hai ye 
+// jiski humne script bnaayi thii -- migrate + rollback krne ke liye------ 
 module.exports = {
   async up (queryInterface: QueryInterface) {
      await queryInterface.sequelize.query(`

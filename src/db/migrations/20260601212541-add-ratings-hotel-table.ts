@@ -5,7 +5,7 @@ module.exports = {
      await queryInterface.sequelize.query(`
       ALTER TABLE hotels
       ADD COLUMN rating DECIMAL(3, 2) NOT NULL DEFAULT 0.0,
-      ADD COLUMN RATING_COUNT INT DEFAULT NULL;
+      ADD COLUMN ratingcount INT DEFAULT NULL;
     `);
   },
 

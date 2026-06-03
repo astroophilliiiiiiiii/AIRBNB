@@ -1,10 +1,9 @@
 // in which all db interaction is going to happen  -- queries meri ts ki langauge m 
 // with the help of hotel object from hotel model 
-import { logger } from "../config/logger.config.js";
-import hotel from "../db/models/hotel.js";
-import Hotel from "../db/models/hotel.js";
-import { createHotelDTO } from "../dto/hotel.dto.js";
-import { NotFoundError } from "../utils/errors/app.error.js";
+import { logger } from "../config/logger.config.js"; // log ke liye 
+import Hotel from "../db/models/hotel.js"; // hotel table -- ts m sql ka hotel table 
+import { createHotelDTO } from "../dto/hotel.dto.js"; // type 
+import { NotFoundError } from "../utils/errors/app.error.js"; // to throw particular errror
 
 // function -- takes hotelData as a parameter and uski type createHotelDTO hai  
 export async function createHotel( hotelData : createHotelDTO ){  // hotelData ki type h createHotelDto
@@ -13,7 +12,7 @@ export async function createHotel( hotelData : createHotelDTO ){  // hotelData k
         address : hotelData.address ,
         location : hotelData.location ,
         rating : hotelData.rating || 0  , 
-        rating_count : hotelData.rating_count || 0 
+        ratingcount : hotelData.ratingcount || 0 
     }) ; 
     
     logger.info(`Hotel created: ${hotel.id} `)
@@ -29,5 +28,36 @@ export async function getHotelById( id : number ) {
     }
 
     logger.info(`Hotel with id ${id} found `) 
-    return hotel ;
+    return hotel ; // returned to the postman 
 }
+
+export async function getAllHotels(){
+     const hotels = await Hotel.findAll({ raw: true }) ;  // take hotel object clean aaye array 
+     
+     logger.info('All Hotels Found !!!' , hotels ) ; 
+     return hotels ; 
+}
+
+export async function deleteHotelByid( id : number ) {
+    const hotel = await Hotel.destroy({
+        where: {
+           id : id ,
+        },
+     })
+     return hotel ; 
+}
+
+export async function updateHotelById( id : number , hotelData : createHotelDTO ){
+    const hotel = await Hotel.update(
+    { 
+        name : hotelData.name , 
+        address : hotelData.address ,
+        location : hotelData.location ,
+        rating : hotelData.rating || 0  , 
+        ratingcount : hotelData.ratingcount || 0 
+     },
+    { where: { id : id ,}, },
+ );  
+    return hotel ; 
+}
+
