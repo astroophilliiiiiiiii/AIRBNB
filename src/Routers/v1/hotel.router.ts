@@ -1,5 +1,5 @@
 import express from "express"
-import { createHotelHandler, getHotelsHandler , updateHotelHandler , deleteHotelHandler , getAllHotelsHandler } from "../../controllers/hotel.controller.js";
+import { createHotelHandler, getHotelsHandler , updateHotelHandler , SoftdeleteHotelHandler , getAllHotelsHandler } from "../../controllers/hotel.controller.js";
 import { validateRequestBody } from "../../validators/index.js";
 import { hotelSchema } from "../../validators/hotel.validator.js";
 
@@ -13,7 +13,7 @@ HotelRouter.get("/:id" , getHotelsHandler ) ;
 
 HotelRouter.get("/" , getAllHotelsHandler ) ; 
 
-HotelRouter.delete("/:id" , deleteHotelHandler ) ; 
+HotelRouter.delete("/:id" , SoftdeleteHotelHandler ) ; 
 
 HotelRouter.patch("/:id" , updateHotelHandler ) ; 
 

@@ -1,6 +1,6 @@
 // consumes queries from hotel.repository and send response to controller
 import { createHotelDTO } from "../dto/hotel.dto.js";
-import {createHotel , getHotelById, deleteHotelByid , getAllHotels, updateHotelById } from "../repositories/hotel.repository.js";
+import {createHotel , getHotelById, softdeleteHotelByid , getAllHotels, updateHotelById } from "../repositories/hotel.repository.js";
 
 
 export async function createHotelService( hotelData : createHotelDTO ){ 
@@ -19,8 +19,8 @@ export async function getAllHotelsService(){
     return hotel ; 
 }
 
-export async function deleteHotelByIdService( id : number ){
-     const hotel = await deleteHotelByid( id ) ; 
+export async function SoftdeleteHotelByIdService( id : number ){
+     const hotel = await softdeleteHotelByid( id ) ; 
      return hotel ; 
 }
 

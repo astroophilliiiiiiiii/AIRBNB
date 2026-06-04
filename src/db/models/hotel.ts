@@ -7,9 +7,10 @@ class Hotel extends Model<InferAttributes<Hotel> , InferCreationAttributes<Hotel
     declare address : string ;
     declare location : string ;
     declare createdAt : CreationOptional<Date>;
-    declare updatedAt : CreationOptional<Date>
+    declare updatedAt : CreationOptional<Date> ;
     declare rating : number;
     declare ratingcount : number ;
+    declare deleted_at : CreationOptional<Date | null > ; 
 }
 
 Hotel.init({
@@ -45,6 +46,10 @@ Hotel.init({
     ratingcount : {
         type : "INT",
         allowNull : false
+    }, 
+    deleted_at : {
+        type : "DATE" , 
+        defaultValue : null 
     }
 } , {
     sequelize : sequelize , // database connection vaalaa object vahi valaa -- dekhre ki vahi db hinaa connecting to it 
