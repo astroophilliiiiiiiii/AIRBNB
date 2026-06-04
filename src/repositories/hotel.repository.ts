@@ -32,6 +32,7 @@ export async function getHotelById( id : number ) {
     return hotel ; // returned to the postman 
 }
 
+// the deleted data we dont need to show to the user....
 export async function getAllHotels(){
      const hotels = await Hotel.findAll({
          raw: true , 
@@ -49,6 +50,7 @@ export async function getAllHotels(){
      return hotels ; 
 }
 
+// soft deleted the data -------------------------------------------- 
 export async function softdeleteHotelByid( id : number ) {
     const hotel = await Hotel.findByPk(id)
 
@@ -57,8 +59,8 @@ export async function softdeleteHotelByid( id : number ) {
         throw new NotFoundError(`Hotel with id ${id} not found `) ;
     }
      
-     hotel.deleted_at = new Date()
-     await hotel.save() ; 
+     hotel.deleted_at = new Date() // in the hotel model updated !!!!
+     await hotel.save() ; // actually updated in the db 
      logger.info(`Hotel with id ${id} soft deleted! `) 
      return hotel ; 
 }
