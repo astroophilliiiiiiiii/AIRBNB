@@ -2,7 +2,7 @@ import { CreationOptional, InferAttributes, InferCreationAttributes, Model, } fr
 import sequelize from './sequelize.js';
 import Hotel from './hotel.js';
 
-enum RoomType {
+export enum RoomType {
   SINGLE = 'SINGLE',
   DOUBLE = 'DOUBLE',
   FAMILY = 'FAMILY',

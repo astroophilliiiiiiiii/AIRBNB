@@ -74,4 +74,3 @@ export default BaseRepository ;
 // nobody should be able to create object of this class directly 
 // only inherited classes can create object of this class
 
-

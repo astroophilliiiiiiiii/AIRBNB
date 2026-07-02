@@ -46,4 +46,3 @@ export class HotelRepository extends BaseRepository<Hotel>{
 
 }
 
-
